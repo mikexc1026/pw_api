@@ -4,7 +4,7 @@
   "description": "Node api",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
     "nodemon": "^2.0.12",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "sequelize": "^6.6.5"
   }
 }

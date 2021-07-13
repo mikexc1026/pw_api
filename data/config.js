@@ -1,12 +1,13 @@
-const mysql = require('mysql');
-
-const config = {
-    host: '52.86.154.61',
-    user: 'brinkmanm',
-    password: 'EhXkUNYzMGmbVKpw',
-    database: 'brinkmanm',
+module.exports = {
+    HOST: "52.86.154.61",
+    USER: "brinkmanm",
+    PASSWORD: "EhXkUNYzMGmbVKpw",
+    DB: "brinkmanm",
+    dialect: "mysql",
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
 };
-
-const pool = mysql.createPool(config);
-
-module.exports = pool;
