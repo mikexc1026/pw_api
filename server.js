@@ -1,20 +1,28 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const routes = require('./routes/routes');
-const db = require('./models');
 const app = express();
-const port = 8000;
 
-app.use(cors({ origin: "http://localhost:8000" }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true, }));
+var corsOptions = {
+  origin: "http://localhost:14343"
+};
 
-routes(app);
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true, }));
+
+const db = require('./app/models');
+
 db.sequelize.sync({ force:true }).then(() => {
   console.log("drop and re-sync db");
 });
 
-app.listen(port, () => {
-  console.log('Listening on port ' + port);
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome" });
+});
+
+require('./app/routes/routes')(app);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log('Listening on port ' + PORT);
 });
