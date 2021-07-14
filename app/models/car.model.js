@@ -5,6 +5,12 @@ module.exports = (sequelize, Sequelize) => {
       },
       model: {
         type: Sequelize.STRING
+      },
+      year: {
+        type: Sequelize.INTEGER
+      },
+      blinkerFluidLevel: {
+        type: Sequelize.ENUM('FULL', 'LOW', 'EMPTY')
       }
     });
   
